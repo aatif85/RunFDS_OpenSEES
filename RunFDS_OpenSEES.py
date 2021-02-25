@@ -54,9 +54,9 @@ OpenSEES_FILE.insert(tk.END, "htibeamast")
 tk.Label(frame2, width=20, text="OpenSEES File Name", anchor='e').grid(row=0, column=0)
 
 OpenSEES_Program = tk.Entry(frame2, width=20)
-OpenSEES_Program.grid(row=1, column=1)
+#OpenSEES_Program.grid(row=1, column=1)
 OpenSEES_Program.insert(tk.END, r"C:\Program Files\OpenSEES")
-tk.Label(frame2, width=20, text="OpenSEES Saved Here", anchor='e').grid(row=1, column=0)
+#tk.Label(frame2, width=20, text="OpenSEES Saved Here", anchor='e').grid(row=1, column=0)
 
 
 def runFDS():
@@ -68,7 +68,7 @@ tk.Button(window2, text="Run FDS", command=runFDS, width=15, height=1).grid(row=
 
 
 def runOpenSEES():
-    process = subprocess.Popen(["{0}\OpenSees.exe".format(OpenSEES_Program.get())], stdin=subprocess.PIPE, text=True)
+    process = subprocess.Popen(["{0}\OpenSeesDEBUG3.exe".format(OpenSEES_Program.get())], stdin=subprocess.PIPE, text=True)
     process.communicate(os.linesep.join(["source {0}.tcl".format(OpenSEES_FILE.get())]))
 
 
